@@ -1,0 +1,334 @@
+/* ============================================================
+   Snooze AM Eatery — Combined Stylesheet
+   Covers: sign-in + invite/registration pages
+   Targets: form, text inputs, selects, checkboxes,
+            validation messages, buttons, social logins, links
+   ============================================================ */
+
+:root {
+  --snooze-brown: #3b2417;
+  --snooze-orange: #c0461f;
+  --snooze-orange-dark: #9e3817;
+  --field-border: #cdbfb4;
+  --field-focus: #c0461f;
+  --text-dark: #3b2417;
+  --text-muted: #7a6a5e;
+  --bg: #ffffff;
+  --radius: 6px;
+  --font: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Layout / container ---------- */
+body {
+  font-family: var(--font);
+  color: var(--text-dark);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+form {
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 8px 0;
+}
+
+/* ---------- Page heading ---------- */
+h1,
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--snooze-brown);
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+
+/* ---------- Field groups & labels ---------- */
+.form-group,
+.field {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+/* ---------- Text inputs (email, password, text, phone, zip, etc.) ---------- */
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="tel"],
+input[type="number"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-family: var(--font);
+  color: var(--text-dark);
+  background: #fff;
+  border: 1px solid var(--field-border);
+  border-radius: var(--radius);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="email"]:hover,
+input[type="password"]:hover,
+input[type="text"]:hover,
+input[type="tel"]:hover,
+input[type="number"]:hover {
+  border-color: #a8978a;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--field-focus);
+  box-shadow: 0 0 0 3px rgba(192, 70, 31, 0.15);
+}
+
+input::placeholder {
+  color: #a89b90;
+}
+
+/* ---------- Select dropdowns (Birthday day/month/year, Favorite Location) ---------- */
+select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 36px 12px 14px;
+  font-size: 1rem;
+  font-family: var(--font);
+  color: var(--text-dark);
+  background-color: #fff;
+  border: 1px solid var(--field-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%233b2417' d='M6 8L0 0h12z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+select:hover {
+  border-color: #a8978a;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--field-focus);
+  box-shadow: 0 0 0 3px rgba(192, 70, 31, 0.15);
+}
+
+/* Birthday row: three selects side by side */
+.birthday-group,
+.field--birthday {
+  display: flex;
+  gap: 10px;
+}
+.birthday-group select {
+  flex: 1;
+}
+
+/* ---------- Checkboxes (T&C agreement, SMS opt-in) ---------- */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 2px 10px 0 0;
+  accent-color: var(--snooze-orange);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Make checkbox + text sit on one row */
+label:has(> input[type="checkbox"]) {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 14px;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+label > input[type="checkbox"] + label,
+.checkbox-label {
+  display: inline;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+/* ---------- Validation & helper messages ---------- */
+.error,
+.field-error,
+.invalid-feedback {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--snooze-orange-dark);
+}
+
+.hint,
+.help-text,
+.field-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Highlight invalid inputs */
+input:invalid:not(:placeholder-shown),
+.has-error input,
+.has-error select {
+  border-color: var(--snooze-orange-dark);
+}
+
+/* ---------- Primary button (Login / Submit) ---------- */
+button[type="submit"],
+input[type="submit"],
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--snooze-orange);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+button[type="submit"]:hover,
+input[type="submit"]:hover,
+.btn-primary:hover {
+  background: var(--snooze-orange-dark);
+}
+
+button[type="submit"]:active,
+input[type="submit"]:active,
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+button[type="submit"]:focus-visible,
+.btn-primary:focus-visible {
+  outline: 3px solid rgba(192, 70, 31, 0.4);
+  outline-offset: 2px;
+}
+
+/* ---------- Social sign-in / sign-up buttons ---------- */
+/* Facebook */
+a[href*="facebook"],
+.facebook-login,
+.btn-facebook {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 18px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: #3b5998;
+  border-radius: var(--radius);
+  transition: background 0.15s ease;
+}
+
+a[href*="facebook"]:hover,
+.btn-facebook:hover {
+  background: #2d4373;
+}
+
+/* Apple */
+.apple-signin,
+.btn-apple,
+[id*="appleid"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 18px;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  background: #000;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.apple-signin:hover,
+.btn-apple:hover {
+  background: #1a1a1a;
+}
+
+/* ---------- Links (Forgot Password, Show all locations, FAQ, T&C, Privacy) ---------- */
+a {
+  color: var(--snooze-orange);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--snooze-orange-dark);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid rgba(192, 70, 31, 0.5);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Forgot Password — give it breathing room */
+a[href*="password/new"] {
+  display: inline-block;
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Inline "Show all locations" link */
+.show-locations,
+a[href="#"] {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* Footer links (FAQ / T&C / Privacy Policy) */
+a[href*="zendesk"],
+a[href*="terms-of-use"],
+a[href*="privacy-policy"],
+.footer-links a {
+  font-size: 0.85rem;
+  margin: 0 6px;
+}
+
+/* ---------- Footer container ---------- */
+.footer,
+.footer-links {
+  text-align: center;
+  margin-top: 20px;
+}
