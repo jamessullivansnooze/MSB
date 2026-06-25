@@ -1,0 +1,142 @@
+@import url(//fonts.googleapis.com/css?family=Oswald);
+
+.contrast-red {
+    font-family: "Oswald", sans-serif !important;
+}
+
+.contrast-red .alert-danger {
+    display: none;
+}
+
+.container {
+    max-width: 1140px;
+    margin: auto;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.container::before {
+    content: url(https://www.snoozeeatery.com/wp-content/uploads/2019/07/Standard-Logo.svg);
+    width: 300px;
+    display: block;
+    margin: auto;
+    margin-bottom: 2rem;
+    height: 100%;
+    z-index: 0;
+}
+
+@media only screen and (max-width: 550px) {
+    .form-signin {
+        width: 100% !important;
+        display: flex;
+        flex-flow: column;
+    }
+
+    .row::before {
+        width: 82%;
+    }
+
+    .container::before {
+        width: 95%;
+    }
+
+    .contrast-red {
+        width: 95%;
+        display: flex;
+    }
+
+    .login-title {
+        width: 95% !important;
+    }
+}
+
+.profile-img {
+    display: none;
+}
+
+.form-signin {
+    margin: auto;
+    width: 35%;
+}
+
+.login-title {
+    font-size: 18px;
+    width: 35%;
+    margin: auto;
+    text-align: center;
+    margin-top: 2rem;
+    color: #422313;
+}
+
+.form-signin input {
+    height: 40px;
+    width: 95%;
+    display: block;
+    border: 1px solid #422313;
+    margin: 1rem auto;
+    padding-left: 1rem;
+    font-family: "Oswald", sans-serif !important;
+    font-size: 1.25rem;
+}
+
+.btn-block[type="submit"] {
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background-color: white !important;
+    border: solid 1px #422313 !important;
+    color: #422313;
+    box-shadow: 4px 4px;
+    transition: box-shadow 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95), -webkit-box-shadow 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    padding: 10px 0 8px;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    width: 100% !important;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-family: "Oswald", sans-serif !important;
+}
+
+.btn-block[type="submit"]:hover {
+    background-color: white;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.facebook-label {
+    display: none;
+}
+
+a {
+    text-transform: uppercase;
+    color: #422313;
+    font-weight: 700;
+}
+
+.error-messages {
+    background-color: #f00;
+}
+
+.error-messages .error-messages {
+    color: #c55330;
+    letter-spacing: 1px;
+    line-height: 18px;
+}
+
+.field_with_errors label {
+    position: relative;
+}
+
+.iframe-container form label {
+    position: relative;
+}
+
+.iframe-container form label::before {
+    position: absolute;
+    content: '*';
+    margin-right: 10px;
+    color: #f00;
+    left: 0;
+}
